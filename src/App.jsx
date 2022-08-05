@@ -39,7 +39,7 @@ class  App  extends  Component  {
         this.setState({ loading: true });
         try {
             const newImages = await api.fetchImg();
-            this . setState ( {
+            this.setState ( {
                 images: newImages.map(({ id, webformatURL, largeImageURL }) => ({
                     id,
                     webformatURL,
@@ -47,9 +47,9 @@ class  App  extends  Component  {
                 } ) ) ,
             } ) ;
         } catch (error) {
-            this . setState ( { error } ) ;
+            this.setState ( { error } ) ;
         } finally {
-            this . setState ( {  loading : false  } ) ;
+            this.setState ( {  loading : false  } ) ;
         }
     } ;
 
@@ -57,7 +57,7 @@ class  App  extends  Component  {
         this.setState({ loading: true });
         try {
             const newImages = await api.fetchImg();
-            this . setState ( prevState  =>  ( {
+            this.setState ( prevState  =>  ( {
                 images: [
                     ...prevState.images,
                     ...newImages.map(({ id, webformatURL, largeImageURL }) => ({
@@ -68,23 +68,23 @@ class  App  extends  Component  {
                 ] ,
             } ) ) ;
         } catch (error) {
-            this . setState ( { error } ) ;
+            this.setState ( { error } ) ;
         } finally {
-            this . setState ( {  loading : false  } ) ;
+            this.setState ( {  loading : false  } ) ;
         }
     } ;
 
     onSubmitSearchForm = newSearchQuery => {
         api.resetPage();
-        this . setState ( {  searchQuery : newSearchQuery  } ) ;
+        this.setState ( {  searchQuery : newSearchQuery  } ) ;
     } ;
 
     onModalOpen = () => {
-        this . setState ( ( { showModal } )  =>  ( {  showModal : ! showModal  } ) ) ;
+        this.setState ( ( { showModal } )  =>  ( {  showModal : ! showModal  } ) ) ;
     } ;
 
     onImgClick = event => {
-        this . setState ( {
+        this.setState ( {
             largeImgUrl: this.state.images.find(image => image.webformatURL === event.target.src)
                 .largeImageURL,
         } ) ;
@@ -92,7 +92,7 @@ class  App  extends  Component  {
 
     onLoadMoreBtnClick = () => {
         const nextPage = this.state.page + 1;
-        return  this . setState ( {  page : nextPage  } ) ;
+        return  this.setState ( {  page : nextPage  } ) ;
     } ;
 
     render() {
