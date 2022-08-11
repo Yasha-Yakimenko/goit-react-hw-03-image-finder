@@ -21,4 +21,6 @@ ImageGallery.propTypes = {
     images: PropTypes.arrayOf(PropTypes.object).isRequired,
     onModalOpen: PropTypes.func.isRequired,
     onImgClick: PropTypes.func.isRequired,
+    id: PropTypes.number.isRequired,
+    webformatURL: PropTypes.string.isRequired,
 } ;
